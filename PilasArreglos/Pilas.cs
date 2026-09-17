@@ -24,5 +24,26 @@ namespace PilasArreglos
             _pila[_tope] = dato;
             _tope++;
         }
+
+        public void Eliminar()
+        {
+            if (_tope == 0)
+            {
+                throw new Exception("La pila esta vacia");
+            }
+            _tope--;
+            _pila[_tope] = string.Empty;
+        }
+
+        public string ObtenerDatos()
+        {
+            StringBuilder datos = new StringBuilder();
+            for (int i = _tope - 1; i >= 0; i--)
+            {
+                datos.AppendLine(_pila[i]);
+            }
+            return datos.ToString();
+
+        }
     }
 }
